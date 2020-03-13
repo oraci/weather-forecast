@@ -49,7 +49,6 @@ export const SearchContainer = styled.div`
     padding: 20px 60px 20px 20px ;
     border-radius: 4px;
     outline:none;
-  
   }
 
   button {
@@ -65,6 +64,7 @@ export const SearchContainer = styled.div`
       filter: invert(100%);
       width: 22px;
       height: 23px;
+      cursor: pointer;
     }
   }
 `;

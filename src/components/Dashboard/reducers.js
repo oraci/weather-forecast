@@ -1,11 +1,12 @@
-import {GET_WEATHER} from './constants';
+import {GET_WEATHER, IS_WEATHER_LOADING} from './constants';
   
   const initialState = {
-    weather: []
+    weather: [],
+    isLoading: false
   };
   
   function weather(state = initialState, action) {
-    const {type, weather} = action;
+    const {type, weather, isLoading} = action;
   
     switch (type) {
       case GET_WEATHER:
@@ -13,6 +14,11 @@ import {GET_WEATHER} from './constants';
           ...state,
           weather: weather
         }
+      case IS_WEATHER_LOADING:
+        return {
+          ...state,
+          isLoading: isLoading
+        }        
       default:
         return state;  
     }

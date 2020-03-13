@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import CardList from '../CardList/CardList';
 import Filter from '../Filter/Filter';
 import { Container } from './styles';
-import { getWeatherApi } from './api';
-import { WATCH_GET_WEATHER } from './constants';
+import { WATCH_GET_WEATHER, WATCH_IS_WEATHER_LOADING } from './constants';
 import { connect } from 'react-redux';
 
 class Dashboard extends Component {
@@ -15,17 +14,19 @@ class Dashboard extends Component {
   };
       
   onFilter = (city) => {
-    const {getWeather} = this.props;
+    const {getWeather, toggleWeatherLoading} = this.props;
+    
+    toggleWeatherLoading(true);
     getWeather(city);
   }
 
   render() {
-    const {weather} = this.props;
+    const {weather, isLoading} = this.props;
 
     return (
       <Container>
         <Filter onFilter={this.onFilter} />
-        <CardList data={weather}/>        
+        {!isLoading ? (<CardList data={weather}/>) : <div>Loading...</div>}
       </Container>
     )
   }
@@ -39,7 +40,8 @@ const mapStateToProps = ({weather}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getWeather: (city) => dispatch({ type: WATCH_GET_WEATHER, city }),
+    getWeather: city => dispatch({ type: WATCH_GET_WEATHER, city }),
+    toggleWeatherLoading: isLoading => dispatch({type: WATCH_IS_WEATHER_LOADING, isLoading}),
   }
 }
 

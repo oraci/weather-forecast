@@ -4,14 +4,16 @@ import { Container, Title, SearchContainer } from './styles';
 import SearchButton from '../../assets/search.png';
 
 export default function Filter({onFilter}) {
-  const [city, setCity] = useState("Blumenau");
+  const [city, setCity] = useState();
 
   const handlerOnFilter = () => {
-    onFilter(city);
+    if (city) {
+      onFilter(city);
+    }
   }
 
   const handleKeyPress = (event) => {
-    if(event.key === 'Enter'){
+    if (event.key === 'Enter') {
       onFilter(city);
     }
   }
@@ -28,7 +30,6 @@ export default function Filter({onFilter}) {
               type="text" 
               placeholder="Pesquisar por cidade" 
               maxLength="50"
-              value={"Blumenau"}
               onChange={(e) => setCity(e.target.value)}
               onKeyPress={handleKeyPress} 
             />

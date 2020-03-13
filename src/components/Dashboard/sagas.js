@@ -3,6 +3,8 @@ import {getWeatherApi} from './api';
 import {
     GET_WEATHER,
     WATCH_GET_WEATHER,
+    IS_WEATHER_LOADING,
+    WATCH_IS_WEATHER_LOADING
 } from './constants';
 
 export function* watchGetWeather() {
@@ -17,7 +19,18 @@ function* getWeather({city}) {
     if (list) {
       yield put({ type: GET_WEATHER, weather: list});
     }
+
+    yield put({ type: IS_WEATHER_LOADING, isLoading: false});
   } catch(e) {
     console.log(e);
+    yield put({ type: IS_WEATHER_LOADING, isLoading: false});
   }
+}
+
+export function* watchToggleWeatherLoading() {
+  yield takeEvery(WATCH_IS_WEATHER_LOADING, toggleWeatherLoading);
+}
+
+function* toggleWeatherLoading({isLoading}) {
+  yield put({ type: IS_WEATHER_LOADING, isLoading});
 }
