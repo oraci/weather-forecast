@@ -25,11 +25,6 @@ $ cd weather-forecast
 ```
 
 Instalar as dependências:
-   - npm:
-```
-$ npm install
-```
-
    - yarn:
 ```
 $ yarn install
@@ -38,12 +33,6 @@ $ yarn install
 ### 2 - Start da aplicação
 
 Quando finalizado a instalação, realizar o start da aplicação:
-
-   - npm:
-```
-$ npm run start
-```
-
    - yarn:
 ```
 $ yarn start
