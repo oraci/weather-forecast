@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import CardList from '../CardList/CardList';
@@ -8,32 +8,18 @@ import Detail from '../Detail/Detail';
 import { WATCH_GET_WEATHER, WATCH_IS_WEATHER_LOADING } from './constants';
 import { Container } from './styles';
 
-
-class Dashboard extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-      data: []
-    }
-  };
-      
-  onFilter = (city) => {
-    const {getWeather, toggleWeatherLoading} = this.props;
-    
+function Dashboard({ weather, isLoading, getWeather, toggleWeatherLoading }) {
+  const onFilter = (city) => {
     toggleWeatherLoading(true);
     getWeather(city);
   }
 
-  render() {
-    const {weather, isLoading} = this.props;
-
-    return (
-      <Container>
-        <Filter onFilter={this.onFilter} />
-        {!isLoading ? (<CardList data={weather}/>) : <div>Loading...</div>}
-      </Container>
-    )
-  }
+  return (
+    <Container>
+      <Filter onFilter={onFilter} />
+      {!isLoading ? (<CardList data={weather}/>) : <div>Loading...</div>}
+    </Container>
+  )
 }
 
 const mapStateToProps = ({weather}) => {
