@@ -8,6 +8,10 @@ import { Wind, Temperature, Container, WrapperContent, Content, Header, SpanImg,
 export default function Card({data}) {
   const {dt, clouds, temp, speed, weather} = data;
 
+  const handleOnClick = () => {
+    alert('teste');
+  }
+
   const getWeekDay= (dt) => {
     const days = ['DOM','SEG','TER','QUA','QUI','SEX','SAB'];
     const date = new Date(dt * 1000);
@@ -22,7 +26,7 @@ export default function Card({data}) {
   }
 
   return (
-    <Container>       
+    <Container onClick={handleOnClick}>       
       <WrapperContent>
         <Header>
           <SpanImg img={icons[weather[0].main]} />

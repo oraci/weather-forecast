@@ -4,7 +4,7 @@ import img from '../../assets/cloud-background.png';
 export const Container = styled.div`
     display: flex;
     padding: 10px;
-    width: 400px;
+    width: 600px;
 
     p {
         margin: 0px;
@@ -60,7 +60,8 @@ export const TempContainer = styled.div`
     align-items: center;
     background-image: url(${img});
     background-repeat: no-repeat;
-    background-position: center;    
+    background-position: center;
+    background-size: contain;
 `;
 
 export const Temp = styled.p`

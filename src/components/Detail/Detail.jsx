@@ -1,7 +1,7 @@
 import React from 'react';
-import sunny from '../../assets/sunny.png';
 import Text from '../../components/Text/Text';
 
+import sunny from '../../assets/sunny.png';
 import { WrapperContainer, Container, Weather, Temp, TempContainer, City, Content, SpanImg, Header, Name } from './styles';
 
 export default function Detail() {

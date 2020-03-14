@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
     display: flex;
     padding: 10px;
-    width: 80px;
+    width: 115px;
 `;
 
 export const Content = styled.div`
@@ -26,8 +26,8 @@ export const Logo = styled.img`
 `;
 export const Home = styled.img`
     filter: invert(100%);
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
 `;
 export const DateTime = styled.div`
     font-size: 12px;

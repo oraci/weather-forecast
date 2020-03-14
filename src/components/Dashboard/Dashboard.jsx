@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+
 import CardList from '../CardList/CardList';
 import Filter from '../Filter/Filter';
-import { Container } from './styles';
+import Detail from '../Detail/Detail';
+
 import { WATCH_GET_WEATHER, WATCH_IS_WEATHER_LOADING } from './constants';
-import { connect } from 'react-redux';
+import { Container } from './styles';
+
 
 class Dashboard extends Component {
 	constructor(props) {
