@@ -1,10 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
+import { debounce } from 'debounce';
 
 import { Container, Title, SearchContainer } from './styles';
 import SearchButton from '../../assets/search.png';
 
 export const Filter = ({onFilter}) => {
-  const [city, setCity] = useState();
+  const [city, setCity] = useState("");
+  const inputSearch = useRef();
 
   const handlerOnFilter = () => {
     if (city) {
@@ -12,8 +14,17 @@ export const Filter = ({onFilter}) => {
     }
   }
 
+  const setSearchTerm = debounce(search => {
+    if (search !== city) {
+      onFilter(search);
+      setCity(search)
+    }
+  }, 400);
+
   const handleKeyPress = (event) => {
-    if (event.key === 'Enter') {
+    const value = inputSearch.current.value;
+
+    if (event.key === 'Enter' && value !== city) {
       onFilter(city);
     }
   }
@@ -27,10 +38,11 @@ export const Filter = ({onFilter}) => {
         </Title>
         <SearchContainer>
             <input 
+              ref={inputSearch}
               type="text" 
               placeholder="Pesquisar por cidade" 
               maxLength="50"
-              onChange={(e) => setCity(e.target.value)}
+              onChange={(e) => setSearchTerm(e.target.value)}
               onKeyPress={handleKeyPress} 
             />
             <button onClick={handlerOnFilter}> <img src={SearchButton} alt=""/></button>

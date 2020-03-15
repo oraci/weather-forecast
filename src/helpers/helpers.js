@@ -8,15 +8,26 @@ export const icons = {
   Clear: sunny
 }
 
+const getDate = (dt) => {
+  return new Date(dt * 1000);
+}
+
 export const getWeekDay = (dt) => {
   const days = ['DOM','SEG','TER','QUA','QUI','SEX','SAB'];
-  const date = new Date(dt * 1000);
 
-  return days[date.getDay()];
+  return days[getDate(dt).getDay()];
 }
 
 export const getHour = (dt) => {
-  const date = new Date(dt * 1000);
+  return `${getDate(dt).getHours()}:${getDate(dt).getMinutes()}`;
+}
 
-  return date.getHours() + ":" + date.getMinutes();
+export const getMonth = (dt) => {
+  const months = ["Jan", "Fev", "Mar", "Abr", "Maio", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
+
+  return months[getDate(dt).getMonth()];
+}
+
+export const getYear = (dt) => {
+  return getDate(dt).getFullYear();
 }

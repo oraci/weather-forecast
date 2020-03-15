@@ -6,15 +6,21 @@ import {GET_WEATHER, IS_WEATHER_LOADING} from './constants';
   };
   
   function weather(state = initialState, action) {
-    const {type, weather, isLoading} = action;
+    const {type, data, isLoading} = action;
   
     switch (type) {
       case GET_WEATHER:
+        let weather = data;
+
+        if (data.list) {
+          weather = data.list.map(a => {
+            return {...a, city: data.city}
+          })
+        }
+
         return {
           ...state,
-          weather: weather.list.map(a => {
-            return {...a, city: weather.city}
-          })
+          weather
         }
       case IS_WEATHER_LOADING:
         return {

@@ -16,7 +16,7 @@ function* getWeather({city}) {
     const result = yield call(getWeatherApi, city);
 
     if (result) {
-      yield put({ type: GET_WEATHER, weather: result});
+      yield put({ type: GET_WEATHER, data: result});
     }
 
     yield put({ type: IS_WEATHER_LOADING, isLoading: false});

@@ -65,7 +65,6 @@ export const SpanImg = styled.span`
   background-position: center;
   background-size: 24px;
   filter: brightness(0) invert(1);
-  cursor: pointer;
 `;
 
 export const WeekDay = styled.div`

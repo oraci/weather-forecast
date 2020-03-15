@@ -14,6 +14,8 @@ function Dashboard({ weather, isLoading, getWeather, toggleWeatherLoading }) {
   useEffect(() => {
     if (weather.length > 0) {
       setDetail(weather[0]);
+    } else {
+      setDetail();
     }
   }, [weather]);
 

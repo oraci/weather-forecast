@@ -28,7 +28,6 @@ export const SpanImg = styled.span`
   background-repeat: no-repeat;
   background-position: center;
   background-size: 60px;
-  cursor: pointer;
 `;
 
 export const Header = styled.div`
