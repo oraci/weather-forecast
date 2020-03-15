@@ -14,7 +14,8 @@ export const Detail = ({data}) => {
     pressure, 
     humidity,
     sunrise,
-    sunset
+    sunset,
+    city
   } = data || {};
 
   return (
@@ -39,13 +40,13 @@ export const Detail = ({data}) => {
                     <p>14</p>
                   </TempContainer>
                   <Weather>
-                    <Text label={"Wind"} info={speed} />
+                    <Text label={"Wind"} info={`${speed} m/s`} />
                     <Text label={"Cloudiness"} info={weather[0].description} />
                     <Text label={"Pressure"} info={pressure} />
-                    <Text label={"Humidity"} info={humidity} />
+                    <Text label={"Humidity"} info={`${humidity} %`} />
                     <Text label={"Sunrise"} info={getHour(sunrise)} />
                     <Text label={"Sunset"} info={getHour(sunset)} />
-                    <Text label={"Geo coords"} info={"3.5/ms"} />
+                    <Text label={"Geo coords"} info={`[${city.coord.lon}, ${city.coord.lat}]` } />
                   </Weather>
                 </Content>
               </>
