@@ -21,7 +21,7 @@ export const Detail = ({data, today}) => {
     <Container>
         <WrapperContainer>
           {!data ?
-            (<NoResults>Sem registro</NoResults>)
+            (<NoResults>Nenhum registro</NoResults>)
             : 
             (
               <>
@@ -34,7 +34,7 @@ export const Detail = ({data, today}) => {
                 </Header>  
                 <Content>
                   <TempContainer>
-                    <Temp>{temp.day}</Temp>
+                    <Temp>{Math.round(temp.day)}</Temp>
                     <Degree> °C</Degree>
                     <Info>{weather[0].description}</Info>
                     <Info>{`${getHour(dt)} ${getMonth(dt)} ${getYear(dt)}`}</Info>

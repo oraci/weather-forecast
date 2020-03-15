@@ -13,7 +13,7 @@ export const CardList = ({data, onSelectedCard}) => {
             })}
           </ContainerList>
         ) : (
-          <NoResults>Sem registros</NoResults>
+          <NoResults>Nenhum registro</NoResults>
         )}
     </Container>
   );
