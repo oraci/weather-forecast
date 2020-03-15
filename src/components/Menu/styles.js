@@ -17,7 +17,7 @@ export const Content = styled.div`
     padding: 10px;
     border-radius: 16px;
     background-color: #54346a;
-    margin-right: 30px;    
+    margin: 0 30px 0 5px;
 `;
 
 export const Logo = styled.img`
@@ -39,7 +39,7 @@ export const DateTime = styled.div`
     
     label {
         align-self: center;
-        padding: 5px;
+        padding-bottom: 5px;
     }
 
     label.label-date {
