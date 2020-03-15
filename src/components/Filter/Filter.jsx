@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import { debounce } from 'debounce';
 
 import { Container, Title, SearchContainer } from './styles';
@@ -19,7 +19,7 @@ export const Filter = ({onFilter}) => {
       onFilter(search);
       setCity(search)
     }
-  }, 400);
+  }, 500);
 
   const handleKeyPress = (event) => {
     const value = inputSearch.current.value;
