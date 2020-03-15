@@ -83,3 +83,19 @@ export const NoResults = styled.div`
     align-items: center;
     font-size: 24px;
 `;
+
+export const Degree = styled.div`
+    position: relative;
+    width: 250px;
+    margin: 0 auto;
+    top: -95px;
+    text-align: right;
+    font-size: 32px;
+    font-weight: bold;
+`
+
+export const Info = styled.div`
+  color: #6b4983;
+  font-weight: bold;
+  padding: 5px;
+`;

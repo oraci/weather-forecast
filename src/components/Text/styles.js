@@ -14,4 +14,7 @@ export const Label = styled.div`
 `;
 
 export const Info = styled.div`
+  opacity: 0.4;
+  color: #6b4983;
+  font-weight: bold;
 `;

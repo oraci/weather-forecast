@@ -2,7 +2,7 @@ import React from 'react';
 import Text from '../../components/Text/Text';
 import {icons, getWeekDay, getHour, getMonth, getYear} from '../../helpers/helpers';
 
-import { WrapperContainer, Container, Weather, Temp, TempContainer, City, Content, SpanImg, Header, Name, NoResults } from './styles';
+import { WrapperContainer, Container, Weather, Temp, TempContainer, City, Content, SpanImg, Header, Name, NoResults, Degree, Info } from './styles';
 
 export const Detail = ({data, today}) => {
   const {
@@ -34,9 +34,10 @@ export const Detail = ({data, today}) => {
                 </Header>  
                 <Content>
                   <TempContainer>
-                    <Temp>{temp.day} °C</Temp>
-                    <p>{weather[0].description}</p>
-                    <p>{`${getHour(dt)} ${getMonth(dt)} ${getYear(dt)}`}</p>
+                    <Temp>{temp.day}</Temp>
+                    <Degree> °C</Degree>
+                    <Info>{weather[0].description}</Info>
+                    <Info>{`${getHour(dt)} ${getMonth(dt)} ${getYear(dt)}`}</Info>
                   </TempContainer>
                   <Weather>
                     <Text label={"Wind"} info={`${speed} m/s`} />
