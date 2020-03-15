@@ -1,5 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { Clock } from '../Clock/Clock';
+import { getDayMonthNow } from '../../helpers/helpers';
 
 import LogoLinx from '../../assets/logo.png';
 import HomeImage from '../../assets/home.png';
@@ -15,8 +17,8 @@ export default function sidenav() {
           <Home src={HomeImage} alt="Home Button" />
         </NavLink>
         <DateTime>
-          <label>08/12</label>
-          <label className='label-date'>12:40PM</label>
+          <label>{getDayMonthNow()}</label>
+          <Clock />
         </DateTime> 
       </Content>
     </Container>

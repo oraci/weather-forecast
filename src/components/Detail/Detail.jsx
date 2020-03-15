@@ -4,7 +4,7 @@ import {icons, getWeekDay, getHour, getMonth, getYear} from '../../helpers/helpe
 
 import { WrapperContainer, Container, Weather, Temp, TempContainer, City, Content, SpanImg, Header, Name, NoResults } from './styles';
 
-export const Detail = ({data}) => {
+export const Detail = ({data, today}) => {
   const {
     dt,
     temp,
@@ -21,13 +21,13 @@ export const Detail = ({data}) => {
     <Container>
         <WrapperContainer>
           {!data ?
-            (<NoResults>Sem resultado</NoResults>)
+            (<NoResults>Sem registro</NoResults>)
             : 
             (
               <>
                 <Header>
                   <City>
-                    <p>{getWeekDay(dt)}</p>
+                    <p>{today ? "Hoje" : getWeekDay(dt)}</p>
                     <Name>{city.name}</Name>
                   </City>
                   <SpanImg img={icons[weather[0].main]}></SpanImg>

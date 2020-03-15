@@ -17,6 +17,8 @@ export const Loading = styled.div`
     display: flex;
     align-items: center;
     flex: 1;
+    color: white;
+    font-size: 24px;
 `;
 
 export const Header = styled.div`

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from '../Card/Card';
 
-import { Container, ContainerList, Header, NoResults } from './styles';
+import { Container, ContainerList, NoResults } from './styles';
 
 export const CardList = ({data, onSelectedCard}) => {
   return (
@@ -13,7 +13,7 @@ export const CardList = ({data, onSelectedCard}) => {
             })}
           </ContainerList>
         ) : (
-          <NoResults>Sem resultado</NoResults>
+          <NoResults>Sem registros</NoResults>
         )}
     </Container>
   );

@@ -27,8 +27,8 @@ export const SearchContainer = styled.div`
   align-items: center;
 
   width: 90%;
-  height: 50px;
-  border-radius: 20px;
+  height: 80px;
+  border-radius: 30px;
   
   background-color: none;
   position:relative;

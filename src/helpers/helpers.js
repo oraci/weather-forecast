@@ -19,7 +19,10 @@ export const getWeekDay = (dt) => {
 }
 
 export const getHour = (dt) => {
-  return `${getDate(dt).getHours()}:${getDate(dt).getMinutes()}`;
+  const hours = getDate(dt).getHours();
+  const minutes = ('0' + (getDate(dt).getMinutes())).slice(-2);
+
+  return `${hours}:${minutes}`;
 }
 
 export const getMonth = (dt) => {
@@ -30,4 +33,24 @@ export const getMonth = (dt) => {
 
 export const getYear = (dt) => {
   return getDate(dt).getFullYear();
+}
+
+export const getDateFormatAMPM = (dt) => {
+  let hours = dt.getHours();
+  const minutes = ('0' + (dt.getMinutes())).slice(-2);
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+
+  hours = hours % 12;
+  hours = hours ? hours : 12;
+
+  return `${hours}:${minutes} ${ampm}`;
+}
+
+export const getDayMonthNow = () => {
+  const date = new Date();
+
+  const day = ('0' + date.getUTCDate()).slice(-2);  
+  const month = ('0' + (date.getMonth() + 1)).slice(-2);
+
+  return `${day}/${month}`;
 }

@@ -10,12 +10,15 @@ import { ContainerWrapper, Container, Loading, Header } from './styles';
 
 function Dashboard({ weather, isLoading, getWeather, toggleWeatherLoading }) {
   const [detail, setDetail] = useState();
+  const [today, setToday] = useState(true);
 
   useEffect(() => {
     if (weather.length > 0) {
       setDetail(weather[0]);
+      setToday(true);
     } else {
       setDetail();
+      setToday(false);
     }
   }, [weather]);
 
@@ -26,6 +29,7 @@ function Dashboard({ weather, isLoading, getWeather, toggleWeatherLoading }) {
 
   const onSelectedCard = (data) => {
     setDetail(data);
+    setToday(false);
   }
 
   return (
@@ -41,7 +45,7 @@ function Dashboard({ weather, isLoading, getWeather, toggleWeatherLoading }) {
           (<Loading>Carregando...</Loading>)
         }
       </Container>
-      <Detail data={detail} />
+      <Detail data={detail} today={today} />
     </ContainerWrapper>
   )
 }

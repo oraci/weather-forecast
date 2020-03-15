@@ -39,6 +39,7 @@ export const DateTime = styled.div`
     
     label {
         align-self: center;
+        padding: 5px;
     }
 
     label.label-date {

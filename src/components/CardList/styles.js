@@ -16,4 +16,6 @@ export const NoResults = styled.div`
   display: flex;
   flex: 1;
   align-items: center;
+  color: white;
+  font-size: 24px;
 `
