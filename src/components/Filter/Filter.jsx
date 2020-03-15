@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import { Container, Title, SearchContainer } from './styles';
 import SearchButton from '../../assets/search.png';
 
-export default function Filter({onFilter}) {
+export const Filter = ({onFilter}) => {
   const [city, setCity] = useState();
 
   const handlerOnFilter = () => {

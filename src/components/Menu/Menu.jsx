@@ -1,4 +1,6 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+
 import LogoLinx from '../../assets/logo.png';
 import HomeImage from '../../assets/home.png';
 
@@ -9,7 +11,9 @@ export default function sidenav() {
     <Container>
       <Content>
         <Logo src={LogoLinx} alt="Logo Linx" />
-        <Home src={HomeImage} alt="Home Button" />
+        <NavLink exact to={"/weather"}>
+          <Home src={HomeImage} alt="Home Button" />
+        </NavLink>
         <DateTime>
           <label>08/12</label>
           <label className='label-date'>12:40PM</label>

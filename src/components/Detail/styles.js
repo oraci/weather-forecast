@@ -23,6 +23,7 @@ export const SpanImg = styled.span`
   display: block;
   width: 60px;
   height: 60px;
+  filter: opacity(.5) drop-shadow(0 0 0 #6b4983);
   background-image: url(${props => props.img});
   background-repeat: no-repeat;
   background-position: center;
@@ -55,7 +56,7 @@ export const Name = styled.p`
 export const TempContainer = styled.div`
     display: flex;
     flex-direction: column; 
-    height: 300px;
+    height: 450px;
     justify-content: center;
     align-items: center;
     background-image: url(${img});
@@ -73,4 +74,12 @@ export const Temp = styled.p`
 export const Weather = styled.div`
     display: flex;
     padding: 30px;
+    flex-direction: column;
+`;
+
+export const NoResults = styled.div`
+    justify-content: center;
+    display: flex;
+    flex: 1;
+    align-items: center;
 `;

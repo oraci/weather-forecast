@@ -12,12 +12,14 @@ import {GET_WEATHER, IS_WEATHER_LOADING} from './constants';
       case GET_WEATHER:
         return {
           ...state,
-          weather: weather
+          weather: weather.list.map(a => {
+            return {...a, city: weather.city}
+          })
         }
       case IS_WEATHER_LOADING:
         return {
           ...state,
-          isLoading: isLoading
+          isLoading
         }        
       default:
         return state;  

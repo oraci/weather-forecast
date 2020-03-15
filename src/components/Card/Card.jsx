@@ -1,28 +1,14 @@
 import React from 'react';
-import sunny from '../../assets/sunny.png';
-import cloudy from '../../assets/cloudy.png';
-import rain from '../../assets/rain.png';
+import {icons, getWeekDay} from '../../helpers/helpers';
 
 import { Wind, Temperature, Container, WrapperContent, Content, Header, SpanImg, WeekDay } from './styles';
 
-export default function Card({data}) {
+export const Card = ({data, onSelectedCard}) => {
   const {dt, clouds, temp, speed, weather} = data;
 
   const handleOnClick = () => {
-    alert('teste');
-  }
-
-  const getWeekDay= (dt) => {
-    const days = ['DOM','SEG','TER','QUA','QUI','SEX','SAB'];
-    const date = new Date(dt * 1000);
-
-    return days[date.getDay()];
-  }
-
-  const icons = {
-    Clouds: cloudy,
-    Rain: rain,
-    Clear: sunny
+    onSelectedCard(data);
+    console.log(data);
   }
 
   return (

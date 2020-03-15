@@ -1,24 +1,46 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import CardList from '../CardList/CardList';
-import Filter from '../Filter/Filter';
-import Detail from '../Detail/Detail';
+import { Filter } from '../Filter/Filter';
+import { CardList } from '../CardList/CardList';
+import { Detail } from '../Detail/Detail';
 
 import { WATCH_GET_WEATHER, WATCH_IS_WEATHER_LOADING } from './constants';
-import { Container } from './styles';
+import { ContainerWrapper, Container, Loading, Header } from './styles';
 
 function Dashboard({ weather, isLoading, getWeather, toggleWeatherLoading }) {
+  const [detail, setDetail] = useState();
+
+  useEffect(() => {
+    if (weather.length > 0) {
+      setDetail(weather[0]);
+    }
+  }, [weather]);
+
   const onFilter = (city) => {
     toggleWeatherLoading(true);
     getWeather(city);
   }
 
+  const onSelectedCard = (data) => {
+    setDetail(data);
+  }
+
   return (
-    <Container>
-      <Filter onFilter={onFilter} />
-      {!isLoading ? (<CardList data={weather}/>) : <div>Loading...</div>}
-    </Container>
+    <ContainerWrapper>
+      <Container>
+        <Filter onFilter={onFilter} />
+        <Header>
+          <label> Previsão para a semana:</label>
+        </Header>        
+        {!isLoading ? 
+          (<CardList data={weather} onSelectedCard={onSelectedCard} />) 
+          : 
+          (<Loading>Carregando...</Loading>)
+        }
+      </Container>
+      <Detail data={detail} />
+    </ContainerWrapper>
   )
 }
 

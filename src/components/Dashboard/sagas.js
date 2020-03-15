@@ -14,10 +14,9 @@ export function* watchGetWeather() {
 function* getWeather({city}) {
   try {
     const result = yield call(getWeatherApi, city);
-    const {list} = result;
 
-    if (list) {
-      yield put({ type: GET_WEATHER, weather: list});
+    if (result) {
+      yield put({ type: GET_WEATHER, weather: result});
     }
 
     yield put({ type: IS_WEATHER_LOADING, isLoading: false});

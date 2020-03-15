@@ -1,26 +1,20 @@
 import React from 'react';
+import { Card } from '../Card/Card';
 
-import { Container, ContainerList, Header } from './styles';
+import { Container, ContainerList, Header, NoResults } from './styles';
 
-import Card from '../Card/Card';
-
-export default function CardList({data}) {
+export const CardList = ({data, onSelectedCard}) => {
   return (
-    <>
-      <Container>
-        <Header>
-            <label> Previsão para a semana:</label>
-        </Header>
-        <ContainerList>
-          {data.length > 0 ? (
-            data.map((item, key) => {
-              return <Card data={item} key={key}/>
-            })
-          ) : (
-            <div>Sem registros.</div>
-          )}
-        </ContainerList>
-      </Container>
-    </>
+    <Container>
+        {data.length > 0 ? (
+          <ContainerList>
+            {data.map((item, key) => {
+              return <Card data={item} key={key} onSelectedCard={onSelectedCard}/>
+            })}
+          </ContainerList>
+        ) : (
+          <NoResults>Sem resultado</NoResults>
+        )}
+    </Container>
   );
 }
