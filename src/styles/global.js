@@ -11,6 +11,6 @@ const GlobalStyle = createGlobalStyle`
         flex: 1;
         font-family: 'Roboto', sans-serif;
     }
-`
+`;
 
 export default GlobalStyle;

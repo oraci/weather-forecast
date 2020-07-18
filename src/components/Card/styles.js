@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const Container = styled.div`
   margin: 0 10px 20px;
   width: 120px;
@@ -23,12 +22,12 @@ export const Container = styled.div`
   }
 
   &::after {
-    content: "";
+    content: '';
     display: inline-block;
     position: relative;
     width: 40%;
-    
-    background: linear-gradient(to right, #F16127, #FBB116);
+
+    background: linear-gradient(to right, #f16127, #fbb116);
 
     height: 3px;
     right: -10px;
@@ -60,7 +59,7 @@ export const SpanImg = styled.span`
   display: block;
   width: 30px;
   height: 30px;
-  background-image: url(${props => props.img});
+  background-image: url(${(props) => props.img});
   background-repeat: no-repeat;
   background-position: center;
   background-size: 24px;

@@ -13,13 +13,13 @@ export default function sidenav() {
     <Container>
       <Content>
         <Logo src={LogoLinx} alt="Logo Linx" />
-        <NavLink exact to={"/weather"}>
+        <NavLink exact to="/weather">
           <Home src={HomeImage} alt="Home Button" />
         </NavLink>
         <DateTime>
           <label>{getDayMonthNow()}</label>
           <Clock />
-        </DateTime> 
+        </DateTime>
       </Content>
     </Container>
   );

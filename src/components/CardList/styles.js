@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  display: flex;  
+  display: flex;
   flex-direction: column;
   flex: 1;
 `;
@@ -18,4 +18,4 @@ export const NoResults = styled.div`
   align-items: center;
   color: white;
   font-size: 24px;
-`
+`;
