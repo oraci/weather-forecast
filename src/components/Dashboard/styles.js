@@ -21,7 +21,7 @@ export const Loading = styled.div`
   font-size: 24px;
 `;
 
-export const Header = styled.div`
+export const Text = styled.p`
   width: 200px;
   margin: 30px 0;
   color: white;

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { debounce } from 'debounce';
 
-import { Container, Title, SearchContainer } from './styles';
+import { Container, Title, Subtitle, SearchContainer } from './styles';
 import SearchButton from '../../assets/search.png';
 
 export const Filter = ({ onFilter }) => {
@@ -32,15 +32,13 @@ export const Filter = ({ onFilter }) => {
   return (
     <>
       <Container>
-        <Title>
-          <label>Seja bem vindo</label>
-          <label className="title-bold">Selecione uma Cidade</label>
-        </Title>
+        <Title>Welcome</Title>
+        <Subtitle>Choose a city:</Subtitle>
         <SearchContainer>
           <input
             ref={inputSearch}
             type="text"
-            placeholder="Pesquisar por cidade"
+            placeholder="Search by city name"
             maxLength="50"
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyPress={handleKeyPress}

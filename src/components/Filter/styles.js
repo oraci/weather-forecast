@@ -5,16 +5,15 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
-export const Title = styled.div`
-  display: flex;
+export const Title = styled.h1`
   color: #ffffff;
-  flex-direction: column;
-  label {
-    font-size: 40px;
-  }
-  label.title-bold {
-    font-weight: 800;
-  }
+  font-size: 40px;
+`;
+
+export const Subtitle = styled.h2`
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: 800;
 `;
 
 export const SearchContainer = styled.div`

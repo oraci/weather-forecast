@@ -41,7 +41,7 @@ export const Detail = ({ data, today }) => {
     <Container>
       <WrapperContainer>
         {!data ? (
-          <NoResults>Nenhum registro</NoResults>
+          <NoResults>No records</NoResults>
         ) : (
           <>
             <Header>
