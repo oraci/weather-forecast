@@ -3,6 +3,10 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex: 1;
+
+  @media (max-width: 1024px) {
+    flex-wrap: wrap;
+  }
 `;
 
 export const Content = styled.div`
