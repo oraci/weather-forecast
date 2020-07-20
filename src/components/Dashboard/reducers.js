@@ -1,35 +1,53 @@
-import { GET_WEATHER, IS_WEATHER_LOADING } from './constants';
+export const Types = {
+  GET_WEATHER: '@weather/GET_WEATHER',
+  SET_WEATHER: '@weather/SET_WEATHER',
+  IS_WEATHER_LOADING: '@weather/IS_WEATHER_LOADING',
+};
 
 const initialState = {
   weather: [],
   isLoading: false,
 };
 
-function weather(state = initialState, action) {
-  const { type, data, isLoading } = action;
-
-  switch (type) {
-    case GET_WEATHER:
-      let weather = data;
-
-      if (data.list) {
-        weather = data.list.map((a) => {
-          return { ...a, city: data.city };
-        });
-      }
-
+export default function weather(state = initialState, action) {
+  switch (action.type) {
+    case Types.GET_WEATHER: {
       return {
         ...state,
-        weather,
+        isLoading: true,
       };
-    case IS_WEATHER_LOADING:
+    }
+    case Types.SET_WEATHER: {
       return {
         ...state,
-        isLoading,
+        isLoading: initialState.isLoading,
+        weather: action.payload.data,
       };
+    }
+    case Types.IS_WEATHER_LOADING: {
+      return {
+        ...state,
+        isLoading: action.payload.status,
+      };
+    }
     default:
       return state;
   }
 }
 
-export default weather;
+export const Creators = {
+  getWeather: (city) => ({
+    type: Types.GET_WEATHER,
+    payload: { city },
+  }),
+
+  setWeather: (data) => ({
+    type: Types.SET_WEATHER,
+    payload: { data },
+  }),
+
+  toggleWeatherLoading: (status) => ({
+    type: Types.IS_WEATHER_LOADING,
+    payload: { status },
+  }),
+};

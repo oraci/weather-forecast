@@ -10,9 +10,13 @@ export const CardList = ({ data, onSelectedCard }) => {
         <>
           <Text>Forecast for the week:</Text>
           <ContainerList>
-            {data.map((item, key) => {
+            {data.map((item) => {
               return (
-                <Card data={item} key={key} onSelectedCard={onSelectedCard} />
+                <Card
+                  data={item}
+                  key={data.dt}
+                  onSelectedCard={onSelectedCard}
+                />
               );
             })}
           </ContainerList>

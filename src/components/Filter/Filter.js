@@ -1,31 +1,50 @@
-import React, { useState, useRef } from 'react';
-import { debounce } from 'debounce';
+import React, { useState, useRef, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Container, Title, Subtitle, SearchContainer } from './styles';
 import SearchButton from '../../assets/search.png';
 
-export const Filter = ({ onFilter }) => {
+import { Creators as WeatherActions } from '../Dashboard/reducers';
+
+export const Filter = () => {
   const [city, setCity] = useState('');
   const inputSearch = useRef();
 
+  const { isLoading } = useSelector((state) => state.weather);
+
+  const dispatch = useDispatch();
+
+  function useDebounce(value, delay = 600) {
+    const [debounceValue, setDebounceValue] = useState(value);
+
+    useEffect(() => {
+      const timer = setTimeout(() => setDebounceValue(value), delay);
+
+      return () => clearTimeout(timer);
+    }, [value]);
+
+    return debounceValue;
+  }
+
+  const debounceFilter = useDebounce(city, 600);
+
+  useEffect(() => {
+    dispatch(WeatherActions.getWeather(debounceFilter));
+  }, [debounceFilter]);
+
   const handlerOnFilter = () => {
-    if (city) {
-      onFilter(city);
+    const { value } = inputSearch.current;
+
+    if (value !== city) {
+      dispatch(WeatherActions.getWeather(debounceFilter));
     }
   };
 
-  const setSearchTerm = debounce((search) => {
-    if (search !== city) {
-      onFilter(search);
-      setCity(search);
-    }
-  }, 500);
+  const handleOnChange = (value) => {
+    setCity(value);
 
-  const handleKeyPress = (event) => {
-    const { value } = inputSearch.current;
-
-    if (event.key === 'Enter' && value !== city) {
-      onFilter(city);
+    if (!isLoading) {
+      dispatch(WeatherActions.toggleWeatherLoading(true));
     }
   };
 
@@ -33,15 +52,14 @@ export const Filter = ({ onFilter }) => {
     <>
       <Container>
         <Title>Welcome!</Title>
-        <Subtitle>Welcome! Choose a city:</Subtitle>
+        <Subtitle>Choose a city:</Subtitle>
         <SearchContainer>
           <input
             ref={inputSearch}
             type="text"
             placeholder="Search by city name"
             maxLength="50"
-            onChange={(e) => setSearchTerm(e.target.value)}
-            onKeyPress={handleKeyPress}
+            onChange={(e) => handleOnChange(e.target.value)}
           />
           <button onClick={handlerOnFilter} type="submit">
             <img src={SearchButton} alt="" />

@@ -47,7 +47,7 @@ export const Detail = ({ data, today }) => {
             <Header>
               <City>
                 <p>{today ? 'Today' : getWeekDay(dt)}</p>
-                <Name>{city.name}</Name>
+                <Name>{`${city.name}, ${city.country}`}</Name>
               </City>
               <SpanImg img={icons[weather[0].main]} />
             </Header>

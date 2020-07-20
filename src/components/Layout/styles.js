@@ -13,8 +13,8 @@ export const LayoutWrapper = styled.div`
 `;
 
 export const PageWrapper = styled.div`
-  padding: 20px;
   display: flex;
   flex: 1;
   justify-content: center;
+  margin: 10px;
 `;

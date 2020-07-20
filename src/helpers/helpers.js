@@ -13,7 +13,15 @@ const getDate = (dt) => {
 };
 
 export const getWeekDay = (dt) => {
-  const days = ['DOM', 'SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB'];
+  const days = [
+    'SUNDAY',
+    'MONDAY',
+    'TUESDAY',
+    'WEDNESDAY',
+    'THURSDAY',
+    'FRIDAY',
+    'SATURDAY',
+  ];
 
   return days[getDate(dt).getDay()];
 };
@@ -27,18 +35,18 @@ export const getHour = (dt) => {
 
 export const getMonth = (dt) => {
   const months = [
-    'Jan',
-    'Fev',
-    'Mar',
-    'Abr',
-    'Maio',
-    'Jun',
-    'Jul',
-    'Ago',
-    'Set',
-    'Out',
-    'Nov',
-    'Dez',
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
   ];
 
   return months[getDate(dt).getMonth()];

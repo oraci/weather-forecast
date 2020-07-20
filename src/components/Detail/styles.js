@@ -3,8 +3,12 @@ import img from '../../assets/cloud-background.png';
 
 export const Container = styled.div`
   display: flex;
-  padding: 10px;
+  padding-left: 10px;
   width: 600px;
+
+  @media (max-width: 1024px) {
+    width: auto;
+  }
 
   p {
     margin: 0px;
@@ -17,6 +21,7 @@ export const WrapperContainer = styled.div`
   background-color: white;
   border-radius: 16px;
   flex-direction: column;
+  padding: 30px;
 `;
 
 export const SpanImg = styled.span`
@@ -34,7 +39,7 @@ export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px;
+  /* padding: 30px; */
 `;
 
 export const Content = styled.div`
