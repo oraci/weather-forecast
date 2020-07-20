@@ -32,8 +32,8 @@ export const Filter = ({ onFilter }) => {
   return (
     <>
       <Container>
-        <Title>Welcome</Title>
-        <Subtitle>Choose a city:</Subtitle>
+        <Title>Welcome!</Title>
+        <Subtitle>Welcome! Choose a city:</Subtitle>
         <SearchContainer>
           <input
             ref={inputSearch}
@@ -43,8 +43,7 @@ export const Filter = ({ onFilter }) => {
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyPress={handleKeyPress}
           />
-          <button onClick={handlerOnFilter}>
-            {' '}
+          <button onClick={handlerOnFilter} type="submit">
             <img src={SearchButton} alt="" />
           </button>
         </SearchContainer>

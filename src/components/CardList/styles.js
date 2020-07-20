@@ -19,3 +19,9 @@ export const NoResults = styled.div`
   color: white;
   font-size: 24px;
 `;
+
+export const Text = styled.p`
+  margin: 30px 0;
+  color: white;
+  font-weight: bold;
+`;

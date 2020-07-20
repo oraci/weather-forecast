@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import GlobalStyle from './styles/global';
-import { Layout } from './components/Layout/Layout';
+import Layout from './components/Layout/Layout';
 import Weather from './pages/Weather/Weather';
 
 function App() {

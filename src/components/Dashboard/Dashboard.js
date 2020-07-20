@@ -6,7 +6,7 @@ import { CardList } from '../CardList/CardList';
 import { Detail } from '../Detail/Detail';
 
 import { WATCH_GET_WEATHER, WATCH_IS_WEATHER_LOADING } from './constants';
-import { ContainerWrapper, Container, Loading, Text } from './styles';
+import { Container, Content, Loading, Text } from './styles';
 
 function Dashboard({ weather, isLoading, getWeather, toggleWeatherLoading }) {
   const [detail, setDetail] = useState();
@@ -33,7 +33,18 @@ function Dashboard({ weather, isLoading, getWeather, toggleWeatherLoading }) {
   };
 
   return (
-    <ContainerWrapper>
+    <Container>
+      <Content>
+        <Filter onFilter={onFilter} />
+        {!isLoading ? (
+          <CardList data={weather} onSelectedCard={onSelectedCard} />
+        ) : (
+          <Loading>Loading...</Loading>
+        )}
+      </Content>
+    </Container>
+
+    /* <ContainerWrapper>
       <Container>
         <Filter onFilter={onFilter} />
         <Text>Forecast for the week:</Text>
@@ -44,7 +55,7 @@ function Dashboard({ weather, isLoading, getWeather, toggleWeatherLoading }) {
         )}
       </Container>
       <Detail data={detail} today={today} />
-    </ContainerWrapper>
+    </ContainerWrapper> */
   );
 }
 

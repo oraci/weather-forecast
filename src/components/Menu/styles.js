@@ -1,23 +1,18 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  display: flex;
-  padding: 10px;
-  width: 115px;
-`;
-
-export const Content = styled.div`
-  display: flex;
-  flex: 1;
+  border-radius: 16px;
+  background-color: #54346a;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 50px;
+  margin: 10px;
   padding: 10px;
-  border-radius: 16px;
-  background-color: #54346a;
-  margin: 0 30px 0 5px;
+
+  @media (max-width: 1024px) {
+    flex-direction: row;
+  }
 `;
 
 export const Logo = styled.img`
@@ -35,14 +30,13 @@ export const DateTime = styled.div`
   flex-direction: column;
   justify-content: center;
   color: #ffffff;
-  padding-bottom: 20px;
 
-  label {
+  > p {
     align-self: center;
     padding-bottom: 5px;
   }
 
-  label.label-date {
+  > label.label-date {
     opacity: 30%;
   }
 `;

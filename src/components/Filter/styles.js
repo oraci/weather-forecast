@@ -18,23 +18,14 @@ export const Subtitle = styled.h2`
 
 export const SearchContainer = styled.div`
   display: flex;
-  flex-direction: row;
-
   border: 1px solid grey;
   margin-top: 30px;
   margin-bottom: 10px;
   align-items: center;
-
-  width: 90%;
   height: 80px;
   border-radius: 30px;
-
-  background-color: none;
   position: relative;
-
-  *:focus {
-    outline: none;
-  }
+  outline: none;
 
   input {
     color: white;
@@ -54,10 +45,10 @@ export const SearchContainer = styled.div`
     background-color: transparent;
     border: none;
     position: absolute;
-    top: 5px;
-    right: 0;
-    height: 90%;
-    width: 10%;
+    right: 20px;
+    height: 35px;
+    width: 35px;
+    outline: none;
 
     img {
       filter: invert(100%);

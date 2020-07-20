@@ -1,11 +1,12 @@
 import React from 'react';
-import { LayoutWrapper } from './styles';
+import { LayoutWrapper, PageWrapper } from './styles';
 import Menu from '../Menu/Menu';
-import Dashboard from '../Dashboard/Dashboard';
 
-export const Layout = () => (
+const Layout = ({ children }) => (
   <LayoutWrapper>
     <Menu />
-    <Dashboard />
+    <PageWrapper>{children}</PageWrapper>
   </LayoutWrapper>
 );
+
+export default Layout;

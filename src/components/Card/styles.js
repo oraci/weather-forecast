@@ -40,17 +40,18 @@ export const WrapperContent = styled.div`
   color: white;
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Content = styled.div`
   flex-direction: column;
   display: flex;
-  flex: 1;
   padding: 5px;
 `;
 
 export const Header = styled.div`
-  height: 115px;
+  flex: 1;
   display: flex;
   justify-content: space-between;
 `;
@@ -69,7 +70,6 @@ export const SpanImg = styled.span`
 export const WeekDay = styled.div`
   font-size: 10px;
   color: white;
-  padding-right: 10px;
 `;
 
 export const Temperature = styled.div`
